@@ -8,7 +8,7 @@
 </head>
 <body>
     @foreach ($songs as $song)
-        <li>{{ $song }}</li>
+        <li><a href="/songs/{{$song->id}}">  {{ $song->title }} - {{$song->singer}} </a></li>
     @endforeach
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Song;
 
 class SongController extends Controller
 {
@@ -13,8 +14,7 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        return view("songs.index", ['songs' => $songs]);
+        return view("songs.index", ['songs' => Song::all()]);
     }
 
     /**
@@ -35,8 +35,7 @@ class SongController extends Controller
      */
     public function show($index)
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        return view("songs.show", ['song' => $songs[$index]]);
+        return view("songs.show", ['song' => Song::find($index)]);
     }
 
     /**

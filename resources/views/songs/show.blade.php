@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    {{$song}}
+    {{$song->title}} - {{$song->singer}}
 </body>
 </html>
