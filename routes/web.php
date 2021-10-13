@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/songs', [SongController::class, 'index']);
 
 Route::get('/songs/create', [SongController::class, 'create']);
+Route::post('/songs', [SongController::class, 'store'])->name('/songs');
 
 Route::get('/songs/{index}', [SongController::class, 'show']);
 

@@ -28,6 +28,23 @@ class SongController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+    	// $request->validate([
+        //     'title' => 'required',
+        //     'singer' => 'required',
+        // ]);
+
+        Song::create($request->except('_token'));
+        return redirect()->route('/songs');
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

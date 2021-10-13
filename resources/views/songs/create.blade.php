@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="newSong" id="newSong">
-    <button type=submit>Submit</button>
+    <form action="/songs" method="POST">
+        @csrf
+        <input type="text" name="title" id="title" required>
+        <input type="text" name="singer" id="singer" required>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

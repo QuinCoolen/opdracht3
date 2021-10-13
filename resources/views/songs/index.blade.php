@@ -10,5 +10,7 @@
     @foreach ($songs as $song)
         <li><a href="/songs/{{$song->id}}">  {{ $song->title }} - {{$song->singer}} </a></li>
     @endforeach
+
+    <a href="/songs/create">Create New Song</a>
 </body>
 </html>
