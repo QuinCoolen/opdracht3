@@ -35,10 +35,11 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-    	// $request->validate([
-        //     'title' => 'required',
-        //     'singer' => 'required',
-        // ]);
+    	$request->validate([
+            'id' => 'required',
+            'title' => 'required|max:191',
+            'singer' => 'required|max:100',
+        ]);
 
         Song::create($request->except('_token'));
         return redirect()->route('songs.index');
@@ -75,6 +76,12 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'id' => 'required',
+            'title' => 'required|max:191',
+            'singer' => 'required|max:100',
+        ]);
         
         Song::find($id)->update($request->except(['id', '_token']));
         return redirect()->route('songs.index');
