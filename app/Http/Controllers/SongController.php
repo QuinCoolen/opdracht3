@@ -61,10 +61,9 @@ class SongController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($index)
+    public function edit($id)
     {
-        $songs = ['Living on a prayer', 'Nothing else matters', 'Thunderstruck', 'Back in black', 'Ace of spades'];
-        return view("songs.edit", ['song' => $songs[$index]]);
+        return view("songs.edit", ['song' => Song::find($id)]);
     }
 
     /**
@@ -76,7 +75,9 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        Song::find($id)->update($request->all());
+        return redirect()->route('songs.index');
     }
 
     /**

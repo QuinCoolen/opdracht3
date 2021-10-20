@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="newSong" id="newSong" value="{{$song}}">
-    <button type=submit>Submit</button>
+    <form action="{{ route('songs.update', $song->id) }}" method="POST">
+        @csrf
+        <input type="text" name="title" id="title" required value="{{ $song->title }}">
+        <input type="text" name="singer" id="singer" required value="{{ $song->singer }}">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

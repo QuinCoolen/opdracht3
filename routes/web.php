@@ -18,11 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/songs', [SongController::class, 'index']);
+Route::get('/songs', [SongController::class, 'index'])->name('songs.index');
 
-Route::get('/songs/create', [SongController::class, 'create']);
-Route::post('/songs', [SongController::class, 'store'])->name('/songs');
+Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
+Route::post('/songs', [SongController::class, 'store'])->name('songs.store');
 
-Route::get('/songs/{index}', [SongController::class, 'show']);
+Route::get('/songs/{id}', [SongController::class, 'show'])->name('songs.show');
 
-Route::get('/songs/{index}/edit', [SongController::class, 'edit']);
+Route::get('/songs/{id}/edit', [SongController::class, 'edit'])->name('songs.edit');
+Route::post('/songs/{id}', [SongController::class, 'update'])->name('songs.update');
