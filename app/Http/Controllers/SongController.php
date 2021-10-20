@@ -41,7 +41,7 @@ class SongController extends Controller
         // ]);
 
         Song::create($request->except('_token'));
-        return redirect()->route('/songs');
+        return redirect()->route('songs.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class SongController extends Controller
     public function update(Request $request, $id)
     {
         
-        Song::find($id)->update($request->all());
+        Song::find($id)->update($request->except(['id', '_token']));
         return redirect()->route('songs.index');
     }
 
@@ -88,6 +88,7 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Song::find($id)->delete();
+        return redirect()->route('songs.index');
     }
 }

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="songs.store" method="POST">
+    <form action="{{ route('songs.store') }}" method="POST">
         @csrf
         <input type="text" name="title" id="title" required>
         <input type="text" name="singer" id="singer" required>

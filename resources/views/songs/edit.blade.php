@@ -9,6 +9,7 @@
 <body>
     <form action="{{ route('songs.update', $song->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <input type="text" name="title" id="title" required value="{{ $song->title }}">
         <input type="text" name="singer" id="singer" required value="{{ $song->singer }}">
         <button type="submit">Submit</button>

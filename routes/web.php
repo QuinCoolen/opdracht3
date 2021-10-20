@@ -26,4 +26,6 @@ Route::post('/songs', [SongController::class, 'store'])->name('songs.store');
 Route::get('/songs/{id}', [SongController::class, 'show'])->name('songs.show');
 
 Route::get('/songs/{id}/edit', [SongController::class, 'edit'])->name('songs.edit');
-Route::post('/songs/{id}', [SongController::class, 'update'])->name('songs.update');
+Route::put('/songs/{id}', [SongController::class, 'update'])->name('songs.update');
+
+Route::delete('/songs/{id}', [SongController::class, 'destroy'])->name('songs.destroy');
