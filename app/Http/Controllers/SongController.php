@@ -36,7 +36,6 @@ class SongController extends Controller
     public function store(Request $request)
     {
     	$request->validate([
-            'id' => 'required',
             'title' => 'required|max:191',
             'singer' => 'required|max:100',
         ]);
@@ -78,7 +77,6 @@ class SongController extends Controller
     {
 
         $request->validate([
-            'id' => 'required',
             'title' => 'required|max:191',
             'singer' => 'required|max:100',
         ]);
