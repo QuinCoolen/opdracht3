@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\AlbumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,15 @@ Route::get('/songs/{id}/edit', [SongController::class, 'edit'])->name('songs.edi
 Route::put('/songs/{id}', [SongController::class, 'update'])->name('songs.update');
 
 Route::delete('/songs/{id}', [SongController::class, 'destroy'])->name('songs.destroy');
+
+Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
+
+Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
+Route::post('/albums', [AlbumController::class, 'store'])->name('albums.store');
+
+Route::get('/albums/{id}', [AlbumController::class, 'show'])->name('albums.show');
+
+Route::get('/albums/{id}/edit', [AlbumController::class, 'edit'])->name('albums.edit');
+Route::put('/albums/{id}', [AlbumController::class, 'update'])->name('albums.update');
+
+Route::delete('/albums/{id}', [AlbumController::class, 'destroy'])->name('albums.destroy');
