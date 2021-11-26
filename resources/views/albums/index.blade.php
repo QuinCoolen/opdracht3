@@ -8,8 +8,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="grid justify-items-center py-4">
+    <div class="flex sm:flex-row flex-col w-full justify-between py-4">
+        <a class="text-center w-52 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/bands">Go To Bands</a>
         <a class="text-center w-52 m-auto bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" href="/albums/create">Create New Album</a>
+        <a class="text-center w-52 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/songs">Go To Songs</a>
     </div>
     <div class="grid gap-4 grid-rows-2 grid-cols-3 content-between">
         <div class="flex flex-wrap gap-4 p-5 col-span-3">
