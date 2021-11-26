@@ -37,8 +37,8 @@ class AlbumController extends Controller
     {
         $request->validate([
             'name' => 'required|max:191',
-            'year' => 'max:191',
-            'times_sold' => 'max:191',
+            'year' => 'integer|min:1900|max:2022',
+            'times_sold' => 'numeric|min:0',
         ]);
 
         Album::create($request->except('_token'));
