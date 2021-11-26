@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\BandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,15 @@ Route::get('/albums/{id}/edit', [AlbumController::class, 'edit'])->name('albums.
 Route::put('/albums/{id}', [AlbumController::class, 'update'])->name('albums.update');
 
 Route::delete('/albums/{id}', [AlbumController::class, 'destroy'])->name('albums.destroy');
+
+Route::get('/bands', [BandController::class, 'index'])->name('bands.index');
+
+Route::get('/bands/create', [BandController::class, 'create'])->name('bands.create');
+Route::post('/bands', [BandController::class, 'store'])->name('bands.store');
+
+Route::get('/bands/{id}', [BandController::class, 'show'])->name('bands.show');
+
+Route::get('/bands/{id}/edit', [BandController::class, 'edit'])->name('bands.edit');
+Route::put('/bands/{id}', [BandController::class, 'update'])->name('bands.update');
+
+Route::delete('/bands/{id}', [BandController::class, 'destroy'])->name('bands.destroy');

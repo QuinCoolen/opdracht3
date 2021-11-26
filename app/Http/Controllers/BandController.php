@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Album;
+use App\Models\Band;
 
-class AlbumController extends Controller
+class BandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        return view("albums.index", ['albums' => Album::all()]);
+        return view("bands.index", ['bands' => Band::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view("albums.create");
+        return view("bands.create");
     }
 
     /**
@@ -37,12 +37,13 @@ class AlbumController extends Controller
     {
         $request->validate([
             'name' => 'required|max:191',
-            'year' => 'max:191',
-            'times_sold' => 'max:191',
+            'genre' => 'required|max:191',
+            'founded' => 'required|max:4',
+            'active_till' => 'required|max:191',
         ]);
 
-        Album::create($request->except('_token'));
-        return redirect()->route('albums.index');
+        Band::create($request->except('_token'));
+        return redirect()->route('bands.index');
     }
 
     /**
@@ -53,7 +54,7 @@ class AlbumController extends Controller
      */
     public function show($index)
     {
-        return view("albums.show", ['album' => Album::find($index)]);
+        return view("bands.show", ['band' => Band::find($index)]);
     }
 
     /**
@@ -64,7 +65,7 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        return view("albums.edit", ['album' => Album::find($id)]);
+        return view("bands.edit", ['band' => Band::find($id)]);
     }
 
     /**
@@ -78,11 +79,13 @@ class AlbumController extends Controller
     {
         $request->validate([
             'name' => 'required|max:191',
-            'year' => 'max:191',
+            'genre' => 'required|max:191',
+            'founded' => 'required|max:4',
+            'active_till' => 'required|max:191',
         ]);
         
-        Album::find($id)->update($request->except(['id', '_token']));
-        return redirect()->route('albums.index');
+        Band::find($id)->update($request->except(['id', '_token']));
+        return redirect()->route('bands.index');
     }
 
     /**
@@ -93,7 +96,7 @@ class AlbumController extends Controller
      */
     public function destroy($id)
     {
-        Album::find($id)->delete();
-        return redirect()->route('albums.index');
+        Band::find($id)->delete();
+        return redirect()->route('bands.index');
     }
 }
