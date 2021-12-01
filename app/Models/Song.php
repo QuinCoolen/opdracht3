@@ -22,4 +22,8 @@ class Song extends Model
      * @var string[]|bool
      */
     protected $guarded = ['*', 'id'];
+
+    public function album(){
+        return $this->belongsToMany(Album::class);
+    }
 }

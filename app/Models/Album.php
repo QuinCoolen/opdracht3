@@ -24,4 +24,12 @@ class Album extends Model
     protected $guarded = ['*', 'id'];
 
     public $timestamps = false;
+
+    public function bands(){
+        return $this->belongsTo(Band::class);
+    }
+
+    public function songs(){
+        return $this->belongsToMany(Song::class);
+    }
 }
