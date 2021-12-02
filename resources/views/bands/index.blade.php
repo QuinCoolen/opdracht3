@@ -10,7 +10,7 @@
 <body>
     <div class="flex sm:flex-row flex-col w-full justify-between py-4">
         <a class="text-center w-52 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/songs">Go To Songs</a>
-        <a class="text-center w-52 m-auto bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" href="/songs/create">Create New Band</a>
+        <a class="text-center w-52 m-auto bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" href="/bands/create">Create New Band</a>
         <a class="text-center w-52 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/albums">Go To Albums</a>
     </div>
     <div class="grid gap-4 grid-rows-2 grid-cols-3 content-between">
