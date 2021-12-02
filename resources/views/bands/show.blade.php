@@ -16,6 +16,10 @@
             <li>Genre: {{$band->genre}}</li>
             <li>Founded: {{$band->founded}}</li>
             <li>Active Till: {{$band->active_till}}</li>
+            <li>Albums:</li>
+            @foreach ($band->albums as $album)
+                <li>{{$album->name}}</li>
+            @endforeach
         </ul>        
     </div>
 </body>

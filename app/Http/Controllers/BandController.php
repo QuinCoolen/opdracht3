@@ -59,7 +59,7 @@ class BandController extends Controller
      */
     public function show($index)
     {
-        return view("bands.show", ['band' => Band::find($index)]);
+        return view("bands.show", ['band' => Band::find($index), 'albums' => Band::find($index)->albums]);
     }
 
     /**
