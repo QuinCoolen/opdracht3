@@ -39,10 +39,15 @@ class BandController extends Controller
             'name' => 'required|max:191',
             'genre' => 'required|max:191',
             'founded' => 'required|max:4',
-            'active_till' => 'required|max:191',
+            'active_till' => 'max:191',
         ]);
 
-        Band::create($request->except('_token'));
+        if($request['active_till'] == ''){
+            Band::create($request->except('_token', 'active_till'));
+        } else {
+            Band::create($request->except('_token'));
+        }
+
         return redirect()->route('bands.index');
     }
 
@@ -81,7 +86,7 @@ class BandController extends Controller
             'name' => 'required|max:191',
             'genre' => 'required|max:191',
             'founded' => 'required|max:4',
-            'active_till' => 'required|max:191',
+            'active_till' => 'max:191',
         ]);
         
         Band::find($id)->update($request->except(['id', '_token']));
