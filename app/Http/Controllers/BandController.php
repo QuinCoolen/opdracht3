@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Band;
+use App\Models\Album;
 
 class BandController extends Controller
 {
@@ -70,7 +71,7 @@ class BandController extends Controller
      */
     public function edit($id)
     {
-        return view("bands.edit", ['band' => Band::find($id)]);
+        return view("bands.edit", ['band' => Band::find($id), 'albums' => Album::all()]);
     }
 
     /**
@@ -90,6 +91,7 @@ class BandController extends Controller
         ]);
         
         Band::find($id)->update($request->except(['id', '_token']));
+        Album::where('id', $request->input('album_id'))->update(['band_id' => $id]);
         return redirect()->route('bands.index');
     }
 

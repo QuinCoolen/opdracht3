@@ -19,6 +19,11 @@
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="genre" id="genre" required value="{{ $band->genre }}">
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="founded" id="founded" required value="{{ $band->founded }}">
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="active_till" id="active_till" required value="{{ $band->active_till }}">
+                <select name="album_id" id="album_id">
+                    @foreach ($albums as $album)
+                        <option value="{{$album->id}}">{{$album->name}}</option>
+                    @endforeach
+                </select>
                 <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </form>
         </div>
