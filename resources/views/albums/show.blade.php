@@ -15,6 +15,7 @@
             <li>Name: {{$album->name}}</li>
             <li>Year: {{$album->year}}</li>
             <li>Times Sold: {{$album->times_sold}}</li>
+            <li>Band: {{$album->band->name}}</li>
         </ul>        
     </div>
 </body>

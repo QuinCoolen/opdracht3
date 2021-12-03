@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\Band;
 
 class AlbumController extends Controller
 {
@@ -24,7 +25,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view("albums.create");
+        return view("albums.create", ['bands' => Band::all()]);
     }
 
     /**
@@ -64,7 +65,7 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        return view("albums.edit", ['album' => Album::find($id)]);
+        return view("albums.edit", ['album' => Album::find($id), 'bands' => Band::all()]);
     }
 
     /**

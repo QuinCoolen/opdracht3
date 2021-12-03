@@ -24,6 +24,6 @@ class Band extends Model
     protected $guarded = ['*', 'id'];
 
     public function albums(){
-        return $this->hasMany(Album::class);
+        return $this->hasMany(Album::class, 'band_id');
     }
 }

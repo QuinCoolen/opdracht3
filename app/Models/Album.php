@@ -25,7 +25,7 @@ class Album extends Model
 
     public $timestamps = false;
 
-    public function bands(){
+    public function band(){
         return $this->belongsTo(Band::class);
     }
 

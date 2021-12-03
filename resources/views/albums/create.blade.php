@@ -17,6 +17,11 @@
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="name" id="name" required>
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="number" name="year" id="year" required>
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="number" name="times_sold" id="times_sold" required>
+                <select name="band_id" id="band_id">
+                    @foreach ($bands as $band)
+                        <option value="{{$band->id}}">{{$band->name}}</option>
+                    @endforeach
+                </select>
                 <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </form>
         </div>
