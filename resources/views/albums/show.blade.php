@@ -10,13 +10,21 @@
 <body class="overflow-hidden">
     <button class="fixed m-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="window.location.href = '/albums';">Back</button>
     <div class="grid place-items-center h-screen">
-        <ul class="border-2 border-black rounded-lg p-3">
-            <li>ID: {{$album->id}}</li>
-            <li>Name: {{$album->name}}</li>
-            <li>Year: {{$album->year}}</li>
-            <li>Times Sold: {{$album->times_sold}}</li>
-            <li>Band: {{$album->band->name}}</li>
-        </ul>        
+        <div class="flex flex-row gap-4" >
+            <ul class="border-2 border-black rounded-lg p-3">
+                <li>ID: {{$album->id}}</li>
+                <li>Name: {{$album->name}}</li>
+                <li>Year: {{$album->year}}</li>
+                <li>Times Sold: {{$album->times_sold}}</li>
+                <li>Band: {{$album->band->name}}</li>
+            </ul>
+            <ul class="border-2 border-black rounded-lg p-3">
+                <li>Songs:</li>
+                @foreach ($album->songs as $song)
+                    <li>{{$song->title}}</li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 </body>
 </html>
