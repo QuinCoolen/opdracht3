@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\SongAlbumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::put('/songs/{id}', [SongController::class, 'update'])->name('songs.update
 
 Route::delete('/songs/{id}', [SongController::class, 'destroy'])->name('songs.destroy');
 
+
+
 Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
 
 Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
@@ -44,6 +47,8 @@ Route::put('/albums/{id}', [AlbumController::class, 'update'])->name('albums.upd
 
 Route::delete('/albums/{id}', [AlbumController::class, 'destroy'])->name('albums.destroy');
 
+
+
 Route::get('/bands', [BandController::class, 'index'])->name('bands.index');
 
 Route::get('/bands/create', [BandController::class, 'create'])->name('bands.create');
@@ -55,3 +60,7 @@ Route::get('/bands/{id}/edit', [BandController::class, 'edit'])->name('bands.edi
 Route::put('/bands/{id}', [BandController::class, 'update'])->name('bands.update');
 
 Route::delete('/bands/{id}', [BandController::class, 'destroy'])->name('bands.destroy');
+
+
+Route::patch('/songs/{song_id}/albums', [SongAlbumController::class, 'store'])->name('songalbums.store');
+Route::delete('/songs/{song_id}/albums/{album_id}', [SongAlbumController::class, 'destroy'])->name('songalbums.destroy');
