@@ -5,6 +5,7 @@ use App\Http\Controllers\SongController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\SongAlbumController;
+use App\Http\Controllers\AlbumSongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +63,8 @@ Route::put('/bands/{id}', [BandController::class, 'update'])->name('bands.update
 Route::delete('/bands/{id}', [BandController::class, 'destroy'])->name('bands.destroy');
 
 
-Route::patch('/songs/{song_id}/albums', [SongAlbumController::class, 'store'])->name('songalbums.store');
+Route::patch('/albums/{song_id}/songs', [SongAlbumController::class, 'store'])->name('songalbums.store');
 Route::delete('/songs/{song_id}/albums/{album_id}', [SongAlbumController::class, 'destroy'])->name('songalbums.destroy');
+
+Route::patch('/songs/{album_id}/albums', [AlbumSongController::class, 'store'])->name('albumsongs.store');
+Route::delete('/songs/{album_id}/albums/{album_id}', [AlbumSongController::class, 'destroy'])->name('albumsongs.destroy');

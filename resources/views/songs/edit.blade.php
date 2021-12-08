@@ -17,6 +17,19 @@
                 @method('PUT')
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="title" id="title" required value="{{ $song->title }}">
                 <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="singer" id="singer" required value="{{ $song->singer }}">
+
+                
+                <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+            </form>
+
+            <form class="border-2 border-black rounded-lg p-3 flex flex-col gap-4" action="{{ route('albumsongs.store', $song_id = $song->id) }}" method="POST">                    
+                @csrf
+                @method('PATCH')
+                <select name="album_id" id="album_id">
+                    @foreach ($albums as $album)
+                        <option value="{{$album->id}}">{{$album->name}}</option>
+                    @endforeach
+                </select>
                 <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </form>
         </div>

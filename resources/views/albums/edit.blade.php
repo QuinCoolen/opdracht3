@@ -24,7 +24,7 @@
                         @foreach ($bands as $band)
                             <option value="{{$band->id}}">{{$band->name}}</option>
                         @endforeach
-                    </select>                    
+                    </select>
                     <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
                 </form>
                 
@@ -36,7 +36,6 @@
                             <option value="{{$song->id}}">{{$song->title}}</option>
                         @endforeach
                     </select>
-                    <p></p>
                     <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
                 </form>
             </div>
