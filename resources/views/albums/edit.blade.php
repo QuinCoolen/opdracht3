@@ -38,6 +38,20 @@
                     </select>
                     <button class="flex-shrink w-24 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
                 </form>
+
+                <ul class="border-2 border-black rounded-lg p-3 flex flex-col gap-4">
+                    <li>Songs:</li>
+                    @foreach ($album->songs as $song)
+                    <form class="border-2 border-black rounded-lg p-3 flex flex-col gap-4" action="{{ route('songalbums.destroy', [$album_id = $album->id, $song_id = $song->id]) }}" method="POST">                    
+                        @csrf
+                        @method('DELETE')
+                        <div class="flex flex-row gap-4">
+                            <button class="flex-shrink w-24 m-auto bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type="submit">Delete</button>
+                            <li class="py-2 px-4">{{$song->title}}</li>        
+                        </div>                
+                    </form>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
