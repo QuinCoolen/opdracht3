@@ -66,7 +66,13 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        return view("albums.edit", ['album' => Album::find($id), 'bands' => Band::all(), 'songs' => Song::all()]);
+        $emp = [];
+        $album = Album::find($id);
+        foreach($album->songs as $song){
+            array_push($emp,$song->id);
+        }
+
+        return view("albums.edit", ['album' => $album, 'bands' => Band::all(), 'songs' => Song::all()->except($emp)]);
     }
 
     /**

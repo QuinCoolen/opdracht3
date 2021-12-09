@@ -32,7 +32,7 @@
                     @csrf
                     @method('PATCH')
                     <select name="song_id" id="song_id">
-                        @foreach ($songs as $song)
+                        @foreach($songs as $song)
                             <option value="{{$song->id}}">{{$song->title}}</option>
                         @endforeach
                     </select>
