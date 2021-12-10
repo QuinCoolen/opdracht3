@@ -3,6 +3,7 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+use App\Http\Log\format;
 
 return [
 
@@ -99,6 +100,13 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+        'autolog'=>[
+            'driver'=>'single',
+            'tap'=>[format::class],
+            'path'=> storage_path('logs/autolog.log'),
+            'level'=> 'debug'
         ],
     ],
 

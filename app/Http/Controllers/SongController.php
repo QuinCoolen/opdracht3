@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Album;
+use Illuminate\Support\Facades\Log;
 
 class SongController extends Controller
 {
@@ -77,6 +78,9 @@ class SongController extends Controller
     public function update(Request $request, $id)
     {
 
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: song | update");
+
         $request->validate([
             'title' => 'required|max:191',
             'singer' => 'required|max:100',
@@ -94,6 +98,9 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: song | destroy");
+
         Song::find($id)->delete();
         return redirect()->route('songs.index');
     }

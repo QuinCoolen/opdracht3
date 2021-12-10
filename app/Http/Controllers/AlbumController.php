@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Band;
 use App\Models\Song;
+use Illuminate\Support\Facades\Log;
 
 class AlbumController extends Controller
 {
@@ -36,7 +37,10 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: album | create");
+
         $request->validate([
             'name' => 'required|max:191',
             'year' => 'integer|min:1900|max:2022',
@@ -84,6 +88,9 @@ class AlbumController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: album | update");
+
         $request->validate([
             'name' => 'required|max:191',
             'year' => 'max:191',
