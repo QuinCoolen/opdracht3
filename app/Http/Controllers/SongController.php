@@ -49,7 +49,10 @@ class SongController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: song | store");
+
     	$request->validate([
             'title' => 'required|max:191',
             'singer' => 'required|max:100',
@@ -90,7 +93,6 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $user = auth()->user()->name;
         Log::channel('autolog')->debug("{$user}: song | update");
 

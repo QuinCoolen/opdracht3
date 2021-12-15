@@ -106,7 +106,10 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {        
+        $user = auth()->user()->name;
+        Log::channel('autolog')->debug("{$user}: album | destroy");
+
         Album::find($id)->delete();
         return redirect()->route('albums.index');
     }
